@@ -6,20 +6,20 @@
     <title>Sonic</title>
 </head>
 <body>
-    <canvas id="gc" width="785" height="350" style="border: 1px solid black;">
-        Please upgrade to an HTML5 browser!
-    </canvas>
+<canvas id="gc" width="600" height="500" style="border: 1px solid black;">
+    Please upgrade to an HTML5 browser!
+</canvas>
 
-    <script>
+<script>
         // Get canvas and context objects
         var canvas = document.getElementById("gc");
         var ctx = canvas.getContext("2d");
 
         // Background attributes
         var bg = new Image();
-        bg.src = "image/bg-game.png";  
+        bg.src = "image/bg-game.png";
         var bgWidth = canvas.width;
-        var bgHeight = canvas.height - 80;
+        var bgHeight = canvas.height - 100;
         var bgX = 0;
         var bgY = 0;
 
@@ -36,7 +36,7 @@
         var sonicWidth = 50;
         var sonicHeight = 50;
         var sonicX = 10;
-        var sonicY = 205;
+        var sonicY = 330;
         var sonicSpeed = 8;
 
         // Coin Attributes
@@ -44,20 +44,20 @@
         coin.src = "image/sonic-ring-sonic.png";
         var coinWidth = 30;
         var coinHeight = 30;
-        var coinX = 230;
-        var coinY = 220;
+        var coinX = 150;
+        var coinY = 340;
 
         // Coin1 Attributes
         var coin1 = new Image();
         coin1.src = "image/sonic-ring-sonic.png";
-        var coin1X = 400;
-        var coin1Y = 220;
+        var coin1X = 300;
+        var coin1Y = 340;
 
         // Coin2 Attributes
         var coin2 = new Image();
         coin2.src = "image/sonic-ring-sonic.png";
-        var coin2X = 600;
-        var coin2Y = 220;
+        var coin2X = 450;
+        var coin2Y = 340;
 
         // Coin3 Attributes
         var coin3 = new Image();
@@ -100,12 +100,12 @@
         coin10.src = "image/sonic-ring-sonic.png";
         var coin10X = 0;
         var coin10Y = 0;
-        
+
         var coin11 = new Image();
         coin11.src = "image/sonic-ring-sonic.png";
         var coin11X = 0;
         var coin11Y = 0;
-        
+
         var coin12 = new Image();
         coin12.src = "image/sonic-ring-sonic.png";
         var coin12X = 0;
@@ -126,12 +126,12 @@
         coin15.src = "image/sonic-ring-sonic.png";
         var coin15X = 0;
         var coin15Y = 0;
-        
+
         var coin16 = new Image();
         coin16.src = "image/sonic-ring-sonic.png";
         var coin16X = 0;
         var coin16Y = 0;
-        
+
         var coin17 = new Image();
         coin17.src = "image/sonic-ring-sonic.png";
         var coin17X = 0;
@@ -152,12 +152,12 @@
         coin20.src = "image/sonic-ring-sonic.png";
         var coin20X = 0;
         var coin20Y = 0;
-        
+
         var coin21 = new Image();
         coin21.src = "image/sonic-ring-sonic.png";
         var coin21X = 0;
         var coin21Y = 0;
-        
+
         var coin22 = new Image();
         coin22.src = "image/sonic-ring-sonic.png";
         var coin22X = 0;
@@ -165,8 +165,8 @@
 
         var coin99 = new Image();
         coin99.src = "image/sonic-ring-sonic.png"
-        var coin99X = 370
-        var coin99Y = 265
+        var coin99X = 220
+        var coin99Y = 405
         var coin99Width = 50;
         var coin99Height = 50;
 
@@ -275,8 +275,8 @@
         heart.src = "image/heart.png";
         var heartWidth = 50;
         var heartHeight = 50;
-        var heartX = 170;
-        var heartY = 270;
+        var heartX = 120;
+        var heartY = 410;
 
         var monster = new Image()
         monster.src = "image/monster.png"
@@ -321,7 +321,7 @@
         var monster4Y = 0;
         var monster4Speed = 3;
         var monster4Direction = 1;
-        
+
 
 
         // Additional variables for jumping
@@ -329,7 +329,7 @@
         var jumpHeight = 0; // The height of the jump
         var jumpSpeed = 10; // The speed at which Sonic jumps
         var gravity = 5; // The force of gravity pulling Sonic down
-        var initialY = sonicY; // The initial Y position of Sonic before the jump          
+        var initialY = sonicY; // The initial Y position of Sonic before the jump
 
         // Attributes for the keyboard keys
         var leftPressed = false;
@@ -340,9 +340,9 @@
 
             ctx.fillStyle = "Livid Brown"
             var x = 0;
-            var y = 200;
-            var width = 785;
-            var height = 270;
+            var y = 400;
+            var width = 600;
+            var height = 100;
             ctx.fillRect(x, y, width, height)
 
             // Draw the background
@@ -359,7 +359,7 @@
             ctx.drawImage(coin99, coin99X, coin99Y, coin99Width, coin99Height);
 
 
-            
+
 
             // Draw Sonic based on the direction
             drawSonic()
@@ -370,11 +370,11 @@
             drawStats();
 
             drawTimer();
- 
+
         }
 
         function SonicTheme()
-        {   
+        {
             theme.play()
         }
 
@@ -435,16 +435,16 @@
                 ctx.drawImage(monster4, monster4X, monster4Y, monster4Width, monster4Height)
             }
         }
- 
+
         // Function to draw game stats
         function drawStats() {
             ctx.beginPath();
             ctx.font = "bold 16px 'Courier New', monospace";
             ctx.fillStyle = "white";
-            
-            ctx.fillText( "  : " + lives, 200, 300);
-            ctx.fillText("  : " + coins, 400, 300);
-            ctx.fillText("Level: " + level, 600, 300);
+
+            ctx.fillText( "  : " + lives, 150, 440);
+            ctx.fillText("  : " + coins, 250, 440);
+            ctx.fillText("Level: " + level, 350, 440);
         }
 
         function drawTimer() {
@@ -463,12 +463,12 @@
         // Function for the game loop
             function animate() {
                 setTimeout(function () {
-                             
-                 time += 20; 
+
+                 time += 20;
                  // Check if one second passed
                  if(time % 1000 == 0 && levelTime > 0)
                  {
-                    levelTime--; 
+                    levelTime--;
                 }
 
                 // Ask the browser to call the game loop
@@ -498,8 +498,8 @@
         }  else if (code == 37) {
         // left arrow key
         leftPressed = true;
-        
-        } 
+
+        }
 
         }// End of handle key down
 
@@ -604,7 +604,7 @@
                 sonicY -= 100
                 sonicRFY -= 100
             }
-        
+
         }
 
 
@@ -629,18 +629,18 @@
 
             return insideX && insideY;
         }
-    
+
         function checkCoinCollision(coinX0, coinY0) {
     if (sonicX < coinX0 + coinWidth && sonicX + sonicWidth > coinX0 &&
-        sonicY < coinY0 + coinHeight && sonicY + sonicHeight > coinY0) 
+        sonicY < coinY0 + coinHeight && sonicY + sonicHeight > coinY0)
     {
         ring.load()
         ring.play()
 
-        coins++; 
+        coins++;
         return 800; // hide the coin after collision
     }
-    return coinX0; // put the coin in its right place if their is no collotion 
+    return coinX0; // put the coin in its right place if their is no collotion
 }
 
         function checkObstacleCollision() {
@@ -677,7 +677,7 @@
                     }
                 }
             }
-        
+
             // Collision with obstacle (ob1)
             if (sonicX + sonicWidth > ob1X &&     // Right side of Sonic is to the right of the left side of the obstacle
             sonicX < ob1X + ob1Width &&        // Left side of Sonic is to the left of the right side of the obstacle
@@ -766,7 +766,7 @@
                         sonicX = ob3X - sonicWidth;
                         sonicRFX = ob3X - sonicWidth;
                         sonicRBX = ob3X - sonicWidth;
-                        
+
                     } else {
                         // Sonic is to the right of the obstacle
                         sonicX = ob3X + ob3Width;
@@ -841,7 +841,7 @@
                 sonicX + sonicWidth > ob6X &&     // Right side of Sonic is to the right of the left side of the obstacle
                 sonicX < ob6X + ob6Width &&        // Left side of Sonic is to the left of the right side of the obstacle
                 sonicY + sonicHeight > ob6Y &&    // Bottom side of Sonic is below the top side of the obstacle
-                sonicY < ob6Y + ob6Height  
+                sonicY < ob6Y + ob6Height
 
             ) {
                 // Check if Sonic is above the obstacle and there is enough space for Sonic to stand on top
@@ -904,7 +904,7 @@
         monsterDirection = 1;
         // Adjust the monster's position so it's to the right of obstacle1
         monsterX = ob2X + ob2Width;
-    } 
+    }
     // Check collision with obstacle2 (ob2)
     else if (monsterX + collisionGap < ob3X + ob3Width && monsterX + monsterWidth - collisionGap > ob3X) {
         // Change direction to move to the left
@@ -912,12 +912,12 @@
         // Adjust the monster's position so it's to the left of obstacle2
         monsterX = ob3X - monsterWidth;
     }
-    
+
     // Update monster's position based on direction
     monsterX += monsterDirection * monsterSpeed;
-    
 
-    
+
+
 }
 // Function to check for collision between Sonic and the monster
 function monsterCollision1() {
@@ -952,7 +952,7 @@ function monsterCollision1() {
         monster1Direction = 1;
         // Adjust the monster's position so it's to the right of obstacle1
         monster1X = ob4X + ob4Width;
-    } 
+    }
     // Check collision with obstacle2 (ob2)
     else if (monster1X + collisionGap1 < ob5X + ob5Width && monster1X + monster1Width - collisionGap1 > ob5X) {
         // Change direction to move to the left
@@ -960,7 +960,7 @@ function monsterCollision1() {
         // Adjust the monster's position so it's to the left of obstacle2
         monster1X = ob5X - monster1Width;
     }
-    
+
     // Update monster's position based on direction
     monster1X += monster1Direction * monster1Speed;
 }
@@ -997,7 +997,7 @@ function monsterCollision2() {
         monster2Direction = 1;
         // Adjust the monster's position so it's to the right of obstacle1
         monster2X = ob5X + ob5Width;
-    } 
+    }
     // Check collision with obstacle2 (ob2)
     else if (monster2X + collisionGap2 < canvas.width && monster2X + monster2Width - collisionGap2 > canvas.width) {
         // Change direction to move to the left
@@ -1005,7 +1005,7 @@ function monsterCollision2() {
         // Adjust the monster's position so it's to the left of obstacle2
         monster2X = canvas.width - monster2Width;
     }
-    
+
     // Update monster's position based on direction
     monster2X += monster2Direction * monster2Speed;
 }
@@ -1042,7 +1042,7 @@ function monsterCollision3() {
         monster4Direction = -1;
         // Adjust the monster's position so it's to the right of obstacle1
         monster4X = canvas.width - monster4Width;
-    } 
+    }
     // Check collision with obstacle2 (ob2)
     else if (monster4X + collisionGap3 < canvas.width && monster4X + monster4Width - collisionGap3 > canvas.width) {
         // Change direction to move to the right
@@ -1050,7 +1050,7 @@ function monsterCollision3() {
         // Adjust the monster's position so it's to the left of obstacle2
         monster4X = canvas.width + monster4Width;
     }
-    
+
     // Update monster's position based on direction
     monster4X += monster4Direction * monster4Speed;
 }
@@ -1067,7 +1067,7 @@ function monsterCollision3() {
                 level = 1
             }
 
-        
+
             if (sonicY == canvas.height ) {
                 isJumping = false;
             }
@@ -1078,17 +1078,17 @@ function monsterCollision3() {
         if (ob6Y + ob6Height >= canvas.height - 200) {
             ob6MoveDown = false;
             ob6MoveUp = true;
-            
+
         }
     } else if (ob6MoveUp) {
         ob6Y -= ob6Speed;
-        
+
         if (ob6Y <= 150) {
             ob6MoveUp = false;
             ob6MoveDown = true;
         }
     }
-            
+
     // Check if Sonic has lost all lives
     if (lives == 0) {
         loss.play()
@@ -1149,8 +1149,8 @@ function monsterCollision3() {
         sonicRFY = initialY;
         sonicRBY = initialY;
         jumpHeight = 0; // Reset jump height
-    } 
-                if(level == 1 && lives > 0 && sonicX <= canvas.width )
+    }
+                if(level == 1 && lives > 0 && sonicX >= canvas.width )
                 {
                     // move to next level
                     level = 2;
@@ -1158,24 +1158,24 @@ function monsterCollision3() {
                     levelTime = 40;
                     lives = 3;
                     sonicX = 10;
-                    sonicY = 330; 
+                    sonicY = 330;
                     levelTime = 25;
 
                     // Reset the coin positions for level 2
-                    
+
                     coin3X = 150; // Reset the positions for level 2
-                    coin3Y = 220;
-                    coin4X = 370;
-                    coin4Y = 220;
-                    coin5X = 670;
-                    coin5Y = 220;
-                    coin6X = 250;
-                    coin6Y = 150;
-                    coin7X = 500;
-                    coin7Y = 150;
-                    
+                    coin3Y = 340;
+                    coin4X = 300;
+                    coin4Y = 340;
+                    coin5X = 450;
+                    coin5Y = 340;
+                    coin6X = 225;
+                    coin6Y = 250;
+                    coin7X = 375;
+                    coin7Y = 250;
+
                 }
-                else if(level == 2  && levelTime > 0 && sonicRFX <= canvas.width)
+                else if(level == 2  && levelTime > 0 && sonicRFX >= canvas.width)
                 {
                     // move to next level
                     level = 3;
@@ -1186,37 +1186,37 @@ function monsterCollision3() {
                     sonicY = 330;
                     levelTime = 25;
 
-                    coin8X = 130; // Reset the positions for level 2
-                    coin8Y = 220;
-                    coin9X = 370;
-                    coin9Y = 100;
-                    coin10X = 510;
-                    coin10Y = 170;
+                    coin8X = 150; // Reset the positions for level 2
+                    coin8Y = 340;
+                    coin9X = 300;
+                    coin9Y = 200;
+                    coin10X = 450;
+                    coin10Y = 340;
                     coin11X = 225;
-                    coin11Y = 170;
-                    coin12X = 650;
-                    coin12Y = 220;
+                    coin11Y = 270;
+                    coin12X = 375;
+                    coin12Y = 270;
                     obX = 215
-                    obY = 205
-                    ob1X = 500
-                    ob1Y = 205
+                    obY = 325
+                    ob1X = 365
+                    ob1Y = 325
 
                 }
-                else if(level == 3 && levelTime > 0 && sonicRFX <= canvas.width)
+                else if(level == 3 && levelTime > 0 && sonicRFX >= canvas.width)
                 {
-                    // move to next level 
+                    // move to next level
                     level = 4;
-                    coins = 0; 
+                    coins = 0;
                     levelTime = 20;
                     lives = 3;
                     sonicX = 10;
                     sonicY = 330;
 
 
-                    coin13X = 130; // Reset the positions for level 4
-                    coin13Y = 220;
-                    coin14X = 370;
-                    coin14Y = 100;
+                    coin13X = 100; // Reset the positions for level 4
+                    coin13Y = 290;
+                    coin14X = 200;
+                    coin14Y = 340;
                     coin15X = 500;
                     coin15Y = 290;
                     coin16X = 160;
@@ -1233,35 +1233,35 @@ function monsterCollision3() {
                     ob3Y = 325
                     monsterX = 270;
                     monsterY = 320;
-                    
+
                 }
                 else if(level == 4 && levelTime > 0 && sonicRFX >= canvas.width)
                 {
-                    // move to next level 
+                    // move to next level
                     level = 5;
-                    coins = 0; 
+                    coins = 0;
                     levelTime = 20;
                     lives = 3;
                     sonicX = 10;
                     sonicY = 330;
 
-                    coin18X = 130; 
-                    coin18Y = 220;
-                    coin19X = 370;
-                    coin19Y = 100;
-                    coin20X = 500;
-                    coin20Y = 290;
+                    coin18X = 90;
+                    coin18Y = 340;
+                    coin19X = 280;
+                    coin19Y = 200;
+                    coin20X = 540;
+                    coin20Y = 110;
                     coin21X = 160;
-                    coin21Y = 230;
-                    coin22X = 440;
-                    coin22Y = 230;
+                    coin21Y = 290;
+                    coin22X = 380;
+                    coin22Y = 290;
                     ob2X = -100;
                     ob2Y = -100;
                     ob3X = -100;
                     ob3Y = -100;
-                    ob4X = 90;
+                    ob4X = 150;
                     ob4Y = 325;
-                    ob5X = 490;
+                    ob5X = 370;
                     ob5Y = 325;
                     ob6X = 510;
                     ob6Y = 150;
@@ -1271,7 +1271,7 @@ function monsterCollision3() {
                     monster2Y = 320;
                     monster4X = 440;
                     monster4Y = 320;
-                    
+
                 }
         coinX = checkCoinCollision(coinX, coinY);
         coin1X = checkCoinCollision(coin1X, coin1Y);
@@ -1283,7 +1283,7 @@ function monsterCollision3() {
         coin7X = checkCoinCollision(coin7X, coin7Y);
         coin8X = checkCoinCollision(coin8X, coin8Y);
         coin9X = checkCoinCollision(coin9X, coin9Y);
-        coin10X = checkCoinCollision(coin10X, coin10Y); 
+        coin10X = checkCoinCollision(coin10X, coin10Y);
         coin11X = checkCoinCollision(coin11X, coin11Y);
         coin12X = checkCoinCollision(coin12X, coin12Y);
         coin13X = checkCoinCollision(coin13X, coin13Y);
