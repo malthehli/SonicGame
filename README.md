@@ -17,6 +17,7 @@ First your group will submit a Game Design Document as per specification and rub
 
 --------------------------------
 What we did:
+
 -The aim of our game is to provide entertainment and excitement to the players by being inspired by a real-life game called sonic the hedgehog, the game uses the concentration of the player to complete it, sonic the hedgehog is the mascot of the well-known company that is Sega.
 
 -In this game sonic needs to bypass and avoid many obstacles that comes in various kinds for example some monsters, blocks, and most importantly timing being cut down each round as it is the main point and idea of out character sonic the hedgehog.
